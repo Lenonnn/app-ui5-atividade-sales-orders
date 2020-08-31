@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "itsgrp.OrdensDeVendas.OrdensDeVendas",
+        "description": "Consulta de Ordens de Venda",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#OrdensDeVendas-Display",
+        "navigationComponentName": "itsgrp.OrdensDeVendas",
+        "intentSemanticObject": "OrdensDeVendas",
+        "intentAction": "Display",
+        "html5ApplicationName": "ordensdevendas1",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "110b5ee8-720c-4250-ba91-aebdebddd36a"
+        ],
+        "contentPackages": [
+            "644f160b-ce00-4f0c-892a-ee830f5a0ce9"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Consulta de Ordens de Vendas",
+        "subtitle": "VA03",
+        "searchKeywords": "Consulta de Ordens de Vendas,VA03",
+        "displayIconUrl": "sap-icon://detail-view",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

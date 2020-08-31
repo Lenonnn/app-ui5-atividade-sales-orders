@@ -1,0 +1,49 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="itsgrp.OrdensDeVendas.controller.Detail">
+
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="Ordem de venda {Vbeln}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="Pedido : {Vbeln}">
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" selectedKey="Criador de Ordem de Vendas : {Ernam}">
+			</IconTabBar>
+			<Table width="auto" items="{GetItemsSet}" updateFinished="onListUpdateFinished" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" noDataText="Descrição">
+				<headerToolbar>
+					<Toolbar id="lineItemsToolbar">
+						<Title id="lineItemsHeader" text="Criador de Ordem de Venda : {Ernam}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Itens"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+						<Text text="Descrição"/>
+					</Column>
+				
+					
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="Item" text="{DocNumber}-{Material}"/><ObjectIdentifier text="{ShortText}"/>
+						</cells>
+							<cells>
+							<ObjectNumber/>
+						</cells>
+					
+					</ColumnListItem>
+				</items>
+			<customData>
+			    <sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="data7"/>
+			</customData>
+			</Table>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+	</semantic:DetailPage>
+
+</mvc:View>

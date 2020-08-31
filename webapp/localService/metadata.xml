@@ -1,0 +1,42 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGETORDERS07_SRV" xml:lang="pt" sap:schema-version="1">
+			<EntityType Name="MasGetItem" sap:content-version="1">
+				<Key><PropertyRef Name="Vbeln"/></Key><Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.vendas" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ernam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Criado por" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vbtyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ctg.documento" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Trvog" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="GrpOperTransaç."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Auart" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Tipo doc.vendas"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Augru" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Motivo da ordem"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Submi" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="RFQ coletiva" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lifsk" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Bloq.remessa" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Faksk" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="BloqDocFatmto." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="GetItemsSet" Relationship="ZGETORDERS07_SRV.HeaderToItem" FromRole="FromRole_HeaderToItem"
+					ToRole="ToRole_HeaderToItem"/></EntityType>
+			<EntityType Name="GetItems" sap:content-version="1">
+				<Key><PropertyRef Name="DocNumber"/></Key><Property Name="DocNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.vendas"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ItmNumber" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MatEntrd" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Mat.inserido"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PrRefMat" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Mat.ref.p/prç."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Lote" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MatlGroup" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="GrpMercads."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ShortText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Denominação it."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ItemCateg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ctg.item" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ItemType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tipo de item"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="HeaderToItem" sap:content-version="1"><End Type="ZGETORDERS07_SRV.MasGetItem" Multiplicity="1" Role="FromRole_HeaderToItem"/><End Type="ZGETORDERS07_SRV.GetItems" Multiplicity="*" Role="ToRole_HeaderToItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeaderToItem"><PropertyRef Name="Vbeln"/></Principal>
+					<Dependent Role="ToRole_HeaderToItem"><PropertyRef Name="DocNumber"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZGETORDERS07_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="MasGetItemSet" EntityType="ZGETORDERS07_SRV.MasGetItem" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="GetItemsSet" EntityType="ZGETORDERS07_SRV.GetItems" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="HeaderToItemSet" Association="ZGETORDERS07_SRV.HeaderToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="MasGetItemSet" Role="FromRole_HeaderToItem"/><End EntitySet="GetItemsSet" Role="ToRole_HeaderToItem"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGETORDERS07_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGETORDERS07_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
